@@ -119,8 +119,8 @@ const Home = () => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image="/img/slide1.jpg"
-                  alt="Servicio 1"
+                  image="/img/portadaweb.jpg"
+                  alt="Reciclaje Responsable"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
@@ -137,8 +137,8 @@ const Home = () => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image="/img/slide2.jpg"
-                  alt="Servicio 2"
+                  image="/img/mision.jpg"
+                  alt="Servicio Profesional"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
@@ -155,8 +155,8 @@ const Home = () => {
                 <CardMedia
                   component="img"
                   height="200"
-                  image="/img/slide3.jpg"
-                  alt="Servicio 3"
+                  image="/img/vision.png"
+                  alt="Compromiso Ambiental"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">

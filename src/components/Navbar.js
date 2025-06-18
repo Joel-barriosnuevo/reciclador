@@ -28,6 +28,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const drawerWidth = 72;
 
@@ -188,8 +189,8 @@ const Navbar = () => {
         <SocialIconButton aria-label="Twitter" component="a" href="https://twitter.com" target="_blank">
           <TwitterIcon />
         </SocialIconButton>
-        <SocialIconButton aria-label="LinkedIn" component="a" href="https://linkedin.com" target="_blank">
-          <LinkedInIcon />
+        <SocialIconButton aria-label="WhatsApp" component="a" href="https://wa.me/573013920582" target="_blank">
+          <WhatsAppIcon />
         </SocialIconButton>
       </SocialContainer>
     </>
@@ -230,8 +231,8 @@ const Navbar = () => {
             <SocialIconButton aria-label="Twitter" component="a" href="https://twitter.com" target="_blank">
               <TwitterIcon />
             </SocialIconButton>
-            <SocialIconButton aria-label="LinkedIn" component="a" href="https://linkedin.com" target="_blank">
-              <LinkedInIcon />
+            <SocialIconButton aria-label="WhatsApp" component="a" href="https://wa.me/573013920582" target="_blank">
+              <WhatsAppIcon />
             </SocialIconButton>
           </SocialContainer>
         </StyledDrawer>
