@@ -137,16 +137,25 @@ const SocialContainer = styled(Box)(({ theme }) => ({
   border: '1px solid rgba(46, 125, 50, 0.2)',
 }));
 
-const LogoTopLeft = styled(Box)(({ theme }) => ({
+const FloatingLogo = styled(Box)(({ theme }) => ({
   position: 'fixed',
   top: theme.spacing(2),
-  left: theme.spacing(2),
-  zIndex: 1200,
+  left: theme.spacing(1),
+  zIndex: 1,
   '& img': {
-    height: '70px',
-    borderRadius: '8px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-  }
+    height: '80px',
+    width: '80px',
+    borderRadius: '50%',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.25)',
+    cursor: 'pointer',
+    transition: 'transform 0.3s ease-in-out',
+    '&:hover': {
+      transform: 'scale(1.1) rotate(5deg)',
+    },
+  },
+  [theme.breakpoints.down('md')]: {
+    display: 'none',
+  },
 }));
 
 const pages = [
@@ -198,9 +207,9 @@ const Navbar = () => {
 
   return (
     <>
-      <LogoTopLeft>
-        <img src="/img/logo.png" alt="El Reciclador" />
-      </LogoTopLeft>
+      <FloatingLogo>
+        <img src="/gifs/caricatura.gif" alt="Caricatura El Reciclador" />
+      </FloatingLogo>
       <Box
         component="nav"
         sx={{ 
