@@ -53,13 +53,13 @@ const TopBar = () => {
             </Typography>
           </ContactInfo>
           <SocialIcons>
-            <IconButton size="small" sx={{ color: 'white' }}>
+            <IconButton size="small" sx={{ color: 'white' }} component="a" href="https://www.facebook.com/profile.php?id=61577916934554" target="_blank">
               <FacebookIcon />
             </IconButton>
-            <IconButton size="small" sx={{ color: 'white' }}>
+            <IconButton size="small" sx={{ color: 'white' }} component="a" href="https://twitter.com" target="_blank">
               <TwitterIcon />
             </IconButton>
-            <IconButton size="small" sx={{ color: 'white' }}>
+            <IconButton size="small" sx={{ color: 'white' }} component="a" href="https://www.instagram.com/rec_iclador/" target="_blank">
               <InstagramIcon />
             </IconButton>
           </SocialIcons>

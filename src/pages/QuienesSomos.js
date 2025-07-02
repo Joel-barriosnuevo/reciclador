@@ -493,7 +493,7 @@ const QuienesSomos = () => {
                     Ubicación
                   </Typography>
                   <Typography variant="body1" color="text.secondary">
-                    Barranquilla, Atlántico<br />
+                    Calle 17 Cra 24-21, Barranquilla, Atlántico<br />
                     Colombia
                   </Typography>
                 </Box>

@@ -172,14 +172,14 @@ const Home = () => {
     <Box>
       {/* Hero Section */}
       <HeroSection>
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+        <Container maxWidth="100%" sx={{ position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <Grid container spacing={4} alignItems="center">
-              <Grid item xs={12} md={7}>
+            <Grid container spacing={4} alignItems="center" justifyContent="space-around" sx={{ flexDirection: { xs: 'column', md: 'row' } }}>
+              <Grid item xs={12} md={7} lg={6}>
                 <Typography
                   variant="h1"
                   component="h1"
@@ -269,6 +269,9 @@ const Home = () => {
                     Contáctanos
                   </Button>
                 </Box>
+              </Grid>
+              <Grid item xs={12} md={5} sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center' }}>
+                <img src="/gifs/caricatura.gif" alt="Caricatura El Reciclador" style={{ maxWidth: '100%', height: '320px', objectFit: 'contain', borderRadius: '50%' }} />
               </Grid>
             </Grid>
           </motion.div>

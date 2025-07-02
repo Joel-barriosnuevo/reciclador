@@ -147,10 +147,10 @@ const Footer = () => {
                 Síguenos
               </Typography>
               <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
-                <SocialIconButton aria-label="Facebook" component="a" href="https://facebook.com" target="_blank">
+                <SocialIconButton aria-label="Facebook" component="a" href="https://www.facebook.com/profile.php?id=61577916934554" target="_blank">
                   <Facebook />
                 </SocialIconButton>
-                <SocialIconButton aria-label="Instagram" component="a" href="https://instagram.com" target="_blank">
+                <SocialIconButton aria-label="Instagram" component="a" href="https://www.instagram.com/rec_iclador/" target="_blank">
                   <Instagram />
                 </SocialIconButton>
                 <SocialIconButton aria-label="Twitter" component="a" href="https://twitter.com" target="_blank">
@@ -218,10 +218,7 @@ const Footer = () => {
                 <LocationOn />
                 <Box>
                   <Typography variant="body2" sx={{ fontWeight: 500 }}>
-                    Barranquilla, Atlántico
-                  </Typography>
-                  <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                    Colombia
+                    Calle 17 Cra 24-21, Barranquilla, Atlántico
                   </Typography>
                 </Box>
               </ContactItem>
@@ -230,10 +227,7 @@ const Footer = () => {
                 <Phone />
                 <Box>
                   <Typography variant="body2" sx={{ fontWeight: 500 }}>
-                    +57 (5) 300-123-4567
-                  </Typography>
-                  <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                    +57 300-987-6543
+                    (301) 392-0582
                   </Typography>
                 </Box>
               </ContactItem>
@@ -242,10 +236,7 @@ const Footer = () => {
                 <Email />
                 <Box>
                   <Typography variant="body2" sx={{ fontWeight: 500 }}>
-                    info@elreciclador.com
-                  </Typography>
-                  <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                    ventas@elreciclador.com
+                    elrecicladoresp@gmail.com
                   </Typography>
                 </Box>
               </ContactItem>

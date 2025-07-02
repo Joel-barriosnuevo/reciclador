@@ -139,28 +139,37 @@ const Contacto = () => {
       icon: <Phone sx={{ fontSize: 40 }} />,
       title: 'Llámanos',
       subtitle: 'Atención telefónica',
-      primary: '+57 (5) 300-123-4567',
-      secondary: '+57 300-987-6543',
+      primary: '(301) 392-0582',
+      secondary: '',
       action: 'Llamar ahora',
-      href: 'tel:+573001234567',
+      href: 'tel:+573013920582',
     },
     {
       icon: <WhatsApp sx={{ fontSize: 40 }} />,
       title: 'WhatsApp',
       subtitle: 'Mensaje directo',
-      primary: '+57 300-987-6543',
+      primary: '(301) 392-0582',
       secondary: 'Respuesta inmediata',
       action: 'Enviar mensaje',
-      href: 'https://wa.me/573009876543',
+      href: 'https://wa.me/573013920582',
     },
     {
       icon: <Email sx={{ fontSize: 40 }} />,
       title: 'Email',
       subtitle: 'Correo electrónico',
-      primary: 'info@elreciclador.com',
-      secondary: 'ventas@elreciclador.com',
+      primary: 'elrecicladoresp@gmail.com',
+      secondary: '',
       action: 'Enviar email',
-      href: 'mailto:info@elreciclador.com',
+      href: 'mailto:elrecicladoresp@gmail.com',
+    },
+    {
+      icon: <LocationOn sx={{ fontSize: 40 }} />,
+      title: 'Dirección',
+      subtitle: 'Nuestra oficina',
+      primary: 'Calle 17 Cra 24-21, Barranquilla, Atlántico',
+      secondary: '',
+      action: 'Ver en Google Maps',
+      href: 'https://www.google.com/maps?q=Calle+17+Cra+24-21,+Barranquilla,+Atlántico',
     },
   ];
 
@@ -258,7 +267,7 @@ const Contacto = () => {
                         <Button
                           component="a"
                           href={method.href}
-                          target="_blank"
+                          {...(method.title === 'Email' ? {} : { target: '_blank' })}
                           variant="contained"
                           startIcon={<Send />}
                           sx={{
@@ -420,10 +429,7 @@ const Contacto = () => {
                     <LocationOn sx={{ mr: 2, color: theme.palette.primary.main }} />
                     <Box>
                       <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                        Barranquilla, Atlántico
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Colombia
+                        Calle 17 Cra 24-21, Barranquilla, Atlántico
                       </Typography>
                     </Box>
                   </ContactInfo>
@@ -432,13 +438,8 @@ const Contacto = () => {
                     <Phone sx={{ mr: 2, color: theme.palette.primary.main }} />
                     <Box>
                       <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                        <a href="tel:+573001234567" style={{ color: 'inherit', textDecoration: 'none' }}>
-                          +57 (5) 300-123-4567
-                        </a>
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        <a href="tel:+573009876543" style={{ color: 'inherit', textDecoration: 'none' }}>
-                          +57 300-987-6543
+                        <a href="tel:+573013920582" style={{ color: 'inherit', textDecoration: 'none' }}>
+                          (301) 392-0582
                         </a>
                       </Typography>
                     </Box>
@@ -448,13 +449,8 @@ const Contacto = () => {
                     <Email sx={{ mr: 2, color: theme.palette.primary.main }} />
                     <Box>
                       <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                        <a href="mailto:info@elreciclador.com" style={{ color: 'inherit', textDecoration: 'none' }}>
-                          info@elreciclador.com
-                        </a>
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        <a href="mailto:ventas@elreciclador.com" style={{ color: 'inherit', textDecoration: 'none' }}>
-                          ventas@elreciclador.com
+                        <a href="mailto:elrecicladoresp@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>
+                          elrecicladoresp@gmail.com
                         </a>
                       </Typography>
                     </Box>
@@ -482,10 +478,10 @@ const Contacto = () => {
                     Síguenos en Redes Sociales
                   </Typography>
                   <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', justifyContent: 'center' }}>
-                    <SocialButton component="a" href="https://facebook.com" target="_blank">
+                    <SocialButton component="a" href="https://www.facebook.com/profile.php?id=61577916934554" target="_blank">
                       <Facebook />
                     </SocialButton>
-                    <SocialButton component="a" href="https://instagram.com" target="_blank">
+                    <SocialButton component="a" href="https://www.instagram.com/rec_iclador/" target="_blank">
                       <Instagram />
                     </SocialButton>
                     <SocialButton component="a" href="https://twitter.com" target="_blank">
@@ -494,7 +490,7 @@ const Contacto = () => {
                     <SocialButton component="a" href="https://linkedin.com" target="_blank">
                       <LinkedIn />
                     </SocialButton>
-                    <SocialButton component="a" href="https://wa.me/573009876543" target="_blank">
+                    <SocialButton component="a" href="https://wa.me/573013920582" target="_blank">
                       <WhatsApp />
                     </SocialButton>
                   </Box>
@@ -505,73 +501,26 @@ const Contacto = () => {
         </Container>
       </ContactContainer>
 
-      {/* Mapa y ubicación */}
-      <Box sx={{ py: 8, backgroundColor: theme.palette.background.default }}>
-        <Container maxWidth="lg">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Typography
-              variant="h3"
-              component="h2"
-              align="center"
-              gutterBottom
-              sx={{ mb: 6 }}
-            >
-              Nuestra Ubicación
-            </Typography>
-            <Grid container spacing={4} alignItems="center" justifyContent="center">
-              <Grid item xs={12} md={6}>
-                <Box
-                  sx={{
-                    height: 400,
-                    backgroundColor: '#f5f5f5',
-                    borderRadius: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid rgba(0,0,0,0.1)',
-                  }}
-                >
-                  <Typography variant="h6" color="text.secondary">
-                    Mapa interactivo aquí
-                  </Typography>
-                </Box>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Typography variant="h5" gutterBottom>
-                  Oficina Principal
-                </Typography>
-                <Typography variant="body1" paragraph>
-                  Nuestra oficina principal se encuentra ubicada en el corazón de Barranquilla, 
-                  estratégicamente posicionada para atender a toda la región del Atlántico.
-                </Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <CheckCircle sx={{ color: 'primary.main', mr: 1 }} />
-                  <Typography variant="body2">Fácil acceso desde cualquier punto de la ciudad</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <CheckCircle sx={{ color: 'primary.main', mr: 1 }} />
-                  <Typography variant="body2">Estacionamiento disponible para visitantes</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <CheckCircle sx={{ color: 'primary.main', mr: 1 }} />
-                  <Typography variant="body2">Acceso para personas con movilidad reducida</Typography>
-                </Box>
-                <Button
-                  variant="outlined"
-                  startIcon={<LocationOn />}
-                  sx={{ mt: 2 }}
-                >
-                  Ver en Google Maps
-                </Button>
-              </Grid>
-            </Grid>
-          </motion.div>
-        </Container>
+      {/* Al final de la página, antes del cierre del componente */}
+      <Box sx={{ mt: 8, mb: 4 }}>
+        <Typography variant="h5" align="center" gutterBottom>
+          Nuestra ubicación
+        </Typography>
+        <Typography align="center" sx={{ mb: 2 }}>
+          Calle 17 Cra 24-21, Barranquilla, Atlántico
+        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <iframe
+            title="Ubicación El Reciclador"
+            src="https://www.google.com/maps?q=Calle+17+Cra+24-21,+Barranquilla,+Atlántico&output=embed"
+            width="100%"
+            height="300"
+            style={{ border: 0, maxWidth: 600 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </Box>
       </Box>
     </Box>
   );

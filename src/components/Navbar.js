@@ -143,10 +143,8 @@ const FloatingLogo = styled(Box)(({ theme }) => ({
   left: theme.spacing(1),
   zIndex: 1,
   '& img': {
-    height: '80px',
-    width: '80px',
-    borderRadius: '50%',
-    boxShadow: '0 4px 20px rgba(0,0,0,0.25)',
+    height: '75px',
+    width: '130px',
     cursor: 'pointer',
     transition: 'transform 0.3s ease-in-out',
     '&:hover': {
@@ -189,10 +187,10 @@ const Navbar = () => {
         <QuickAccessIcon />
       </QuickAccessButton>
       <SocialContainer>
-        <SocialIconButton aria-label="Facebook" component="a" href="https://facebook.com" target="_blank">
+        <SocialIconButton aria-label="Facebook" component="a" href="https://www.facebook.com/profile.php?id=61577916934554" target="_blank">
           <FacebookIcon />
         </SocialIconButton>
-        <SocialIconButton aria-label="Instagram" component="a" href="https://instagram.com" target="_blank">
+        <SocialIconButton aria-label="Instagram" component="a" href="https://www.instagram.com/rec_iclador/" target="_blank">
           <InstagramIcon />
         </SocialIconButton>
         <SocialIconButton aria-label="Twitter" component="a" href="https://twitter.com" target="_blank">
@@ -207,45 +205,109 @@ const Navbar = () => {
 
   return (
     <>
-      <FloatingLogo>
-        <img src="/gifs/caricatura.gif" alt="Caricatura El Reciclador" />
-      </FloatingLogo>
-      <Box
-        component="nav"
-        sx={{ 
-          width: { md: drawerWidth }, 
-          flexShrink: { md: 0 }, 
-          position: 'fixed', 
-          right: 10,
-          top: '50%',
-          transform: 'translateY(-50%)',
-          height: '80vh', 
-          zIndex: 1201,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <StyledDrawer variant="permanent" anchor="right" open>
-          <QuickAccessButton onClick={handleQuickOpen} aria-label="Acceso rápido">
-            <QuickAccessIcon />
-          </QuickAccessButton>
-          <SocialContainer>
-            <SocialIconButton aria-label="Facebook" component="a" href="https://facebook.com" target="_blank">
-              <FacebookIcon />
-            </SocialIconButton>
-            <SocialIconButton aria-label="Instagram" component="a" href="https://instagram.com" target="_blank">
-              <InstagramIcon />
-            </SocialIconButton>
-            <SocialIconButton aria-label="Twitter" component="a" href="https://twitter.com" target="_blank">
-              <TwitterIcon />
-            </SocialIconButton>
-            <SocialIconButton aria-label="WhatsApp" component="a" href="https://wa.me/573013920582" target="_blank">
-              <WhatsAppIcon />
-            </SocialIconButton>
-          </SocialContainer>
-        </StyledDrawer>
-      </Box>
+      {/* Mostrar logo flotante solo en desktop */}
+      {!isMobile && (
+        <FloatingLogo>
+          <img src="/img/Logo.png" alt="Logo El Reciclador" />
+        </FloatingLogo>
+      )}
+      {/* Navbar lateral solo en desktop */}
+      {!isMobile && (
+        <Box
+          component="nav"
+          sx={{ 
+            width: { md: drawerWidth }, 
+            flexShrink: { md: 0 }, 
+            position: 'fixed', 
+            right: 10,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            height: '80vh', 
+            zIndex: 1201,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <StyledDrawer variant="permanent" anchor="right" open>
+            <QuickAccessButton onClick={handleQuickOpen} aria-label="Acceso rápido">
+              <QuickAccessIcon />
+            </QuickAccessButton>
+            <SocialContainer>
+              <SocialIconButton aria-label="Facebook" component="a" href="https://www.facebook.com/profile.php?id=61577916934554" target="_blank">
+                <FacebookIcon />
+              </SocialIconButton>
+              <SocialIconButton aria-label="Instagram" component="a" href="https://www.instagram.com/rec_iclador/" target="_blank">
+                <InstagramIcon />
+              </SocialIconButton>
+              <SocialIconButton aria-label="Twitter" component="a" href="https://twitter.com" target="_blank">
+                <TwitterIcon />
+              </SocialIconButton>
+              <SocialIconButton aria-label="WhatsApp" component="a" href="https://wa.me/573013920582" target="_blank">
+                <WhatsAppIcon />
+              </SocialIconButton>
+            </SocialContainer>
+          </StyledDrawer>
+        </Box>
+      )}
+      {/* Botón menú flotante solo en mobile */}
+      {isMobile && (
+        <IconButton
+          onClick={handleDrawerToggle}
+          sx={{
+            position: 'fixed',
+            top: 16,
+            right: 16,
+            zIndex: 2000,
+            background: 'white',
+            color: 'primary.main',
+            boxShadow: 2,
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+      )}
+      {/* Drawer temporal para mobile */}
+      {isMobile && (
+        <Drawer
+          anchor="right"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          PaperProps={{ sx: { width: 240 } }}
+        >
+          <Box sx={{ p: 2 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <IconButton onClick={handleDrawerToggle}>
+                <CloseIcon />
+              </IconButton>
+            </Box>
+            <List>
+              {pages.map((page) => (
+                <ListItem key={page.name} disablePadding>
+                  <ListItemButton component={RouterLink} to={page.path} onClick={handleDrawerToggle}>
+                    <ListItemIcon>{page.icon}</ListItemIcon>
+                    <ListItemText primary={page.name} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+              <SocialIconButton aria-label="Facebook" component="a" href="https://www.facebook.com/profile.php?id=61577916934554" target="_blank">
+                <FacebookIcon />
+              </SocialIconButton>
+              <SocialIconButton aria-label="Instagram" component="a" href="https://www.instagram.com/rec_iclador/" target="_blank">
+                <InstagramIcon />
+              </SocialIconButton>
+              <SocialIconButton aria-label="Twitter" component="a" href="https://twitter.com" target="_blank">
+                <TwitterIcon />
+              </SocialIconButton>
+              <SocialIconButton aria-label="WhatsApp" component="a" href="https://wa.me/573013920582" target="_blank">
+                <WhatsAppIcon />
+              </SocialIconButton>
+            </Box>
+          </Box>
+        </Drawer>
+      )}
       <Dialog
         open={quickOpen}
         onClose={handleQuickClose}
